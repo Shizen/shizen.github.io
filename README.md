@@ -19,6 +19,7 @@ It seems to take 1+ minutes for the associated github.io page to update.  The do
     {% for post in site.posts %}
       <li>
         <a href="{{ post.url }}">{{ post.title }}</a>
+        {{ post.excerpt }}
       </li>
     {% endfor %}
   </ul>
