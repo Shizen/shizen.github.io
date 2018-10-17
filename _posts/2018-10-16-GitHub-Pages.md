@@ -41,4 +41,4 @@ This entire page appears to not be templated.  Ideally, this would not be the ca
 
 The "workaround" seems to be using Liquid again.  [Back to Head]({{ site.baseurl }}{% link README.md %}) should work... on line 42!
 
-
+In theory `{% link README.md %}` should work as well. E.g. [README]({% link README.md %}).
