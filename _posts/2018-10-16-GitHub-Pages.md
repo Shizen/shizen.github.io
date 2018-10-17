@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "Shin does Jekyll"
+categories: [jekyll, github, cms]
+tags: [sites]
 ---
 
 # GitHub Pages & Jekyll
