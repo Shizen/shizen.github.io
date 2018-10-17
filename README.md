@@ -11,6 +11,8 @@ It seems to take 1+ minutes for the associated github.io page to update.  The do
 
 (Wouldn't it be nice to have a nice fieldset tag?  Shinmark does... sigh)
 
+((of course, the styling of this theme overrides the default fieldset look anyway))
+
 <fieldset>
   <legend>Blog Tests:</legend>  
   <ul>
