@@ -3,6 +3,7 @@ layout: post
 title: "Shin does Jekyll"
 categories: [jekyll, github, cms]
 tags: [sites]
+excerpt_separator: <!--excerpt delimeter-->
 ---
 
 # GitHub Pages & Jekyll
@@ -10,6 +11,8 @@ tags: [sites]
 So, Jekyll supposedly has built-in support for blog posts, and GitHub pages supposedly use Jekyll, so...
 
 In theory this will convert itself into a blog post.  Let's find out.
+
+<!--excerpt delimeter-->
 
 Jekyll, like `Sites` uses markdown and front-matter.  What they set there is different, however.  `Sites` uses a db/sites file to discover what endpoints are supposed to be open.  Jekyll just serves whatever it finds.  Some of the settings in the sites descriptor, however are in the Jekyll front-matter.  E.g. Renderer & Title for instance.
 
