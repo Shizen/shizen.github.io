@@ -6,3 +6,5 @@ Supposedly this is part of a "thing" on github for making sites dedicated/relate
 - [What is GitHub Pages](https://help.github.com/articles/what-is-github-pages/)
 
 [See more](Another.md)
+
+It seems to take 1+ minutes for the associated github.io page to update.  The documentation implies there's some complication going on, although thus far I haven't encountered any particularly description thereof.
