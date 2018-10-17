@@ -70,3 +70,5 @@ Note that with the lack of templating...  I should go look into that.
 
 So having skimmed the relevant documentation, it looks like the `layout` front-matter is a direct reference to an html file in the `_layouts` directory that Jekyll is going to reference to build the page (very similar to `renderer` in `sites`).  Theslates template doesn't define any layout other than default.  Thus it gets rendered without any templating.  Let's test.
 
+Yes, that did the trick.  So for a custom template, I'd either build my own, or there is a mechanism to override the template by providing my own in a local `_layouts/` directory (root-level presumably).  I can customize the default or add new ontes, in theory.  Like a `post.html` template to support the `layout:post` front-matter suggested in the GitHub-pages docs.
+
