@@ -52,16 +52,19 @@ In addition to its page_url processing, liquid & jekyll provide "tag filters".  
 
 There is a filter for syntax coloring--[`rouge`](http://rouge.jneen.net/).  Of course, markdown does this already...
 
+Rouge/Jekyll filter:  
 {% highlight ruby %}
 def foo
   puts 'foo'
 end
 {% endhighlight %}
 
+Markdown:  
 ```ruby
 def foo
   puts 'foo'
 end
 ```
 
+Note that with the lack of templating...  I should go look into that.
 
