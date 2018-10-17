@@ -45,3 +45,23 @@ This entire page appears to not be templated.  Ideally, this would not be the ca
 The "workaround" seems to be using Liquid again.  [Back to Head]({{ site.baseurl }}{% link README.md %}) should work... on line 42!
 
 In theory `{% link README.md %}` should work as well. E.g. [README]({% link README.md %}).
+
+Apparently if I create a `_drafts/` directory, whatever I put in there won't be served, and I can later move it to the posts directory and rename it.  if I had jekyll setup to run locally I could override this behavior in its cli.  Meh.  Jekyll does not do server-side anything and thus provides no built-in editor like `sites` does.  This is another much ado about nothing, I think--jekyll just doesn't serve this directory as a special hardcoded cut out.  Moving on.
+
+In addition to its page_url processing, liquid & jekyll provide "tag filters".  I suspect the excerpt above was one example.  Unfortunately, the default template does not deal with excerpts at all, and thus you end up with an H1 quoted in your documents, because it takes the markdown literally.  That aside...
+
+There is a filter for syntax coloring--[`rouge`](http://rouge.jneen.net/).  Of course, markdown does this already...
+
+{% highlight ruby %}
+def foo
+  puts 'foo'
+end
+{% endhighlight %}
+
+```ruby
+def foo
+  puts 'foo'
+end
+```
+
+
