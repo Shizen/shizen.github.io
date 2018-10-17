@@ -37,5 +37,8 @@ This format also feels very angular like, of course.
 
 This entire page appears to not be templated.  Ideally, this would not be the case and we'd have some sort of nav infrastrcutre.  I'm sure this is just a matter of ignorance on my part.
 
-[Back to Head](/README.md)
+[Back to Head](/README.md) : Notice how this link doesn't serve up the parsed markdown page (documentation I've read claims that markdown files are compiled as part of the "compilation and posting" phase that happens every `post-commit`.  Note that in `Another.md` I have a nearly identical link, but it *does* resolve to the compiled page.  Interesting :).
+
+The "workaround" seems to be using Liquid again.  [Back to Head]({{ site.baseurl }}) should work... on line 42!
+
 
