@@ -1,5 +1,7 @@
 # @Shizen
 
+| [Shinworks](www.shinworks.co) | [Satsuma](www.satsuma.me) |
+
 This is the landing page on github for making sites dedicated/related to or describing a project, or in this case a user (me).  The overall system is called `GitHub Pages`.  So this page should be all about me :tm:... As I relate to github.  or something.
 
 GitHub Pages:
