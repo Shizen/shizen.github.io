@@ -66,7 +66,7 @@ def foo
 end
 ```
 
-Note that with the lack of templating...  I should go look into that.
+(Note that with the lack of templating...  I should go look into that.) < Now fixed.  Note that while the ruby syntax css appears to be imported by default not all are, and might require [extra effort](https://jekyllrb.com/docs/liquid/tags/#stylesheets-for-syntax-highlighting) ;).
 
 So having skimmed the relevant documentation, it looks like the `layout` front-matter is a direct reference to an html file in the `_layouts` directory that Jekyll is going to reference to build the page (very similar to `renderer` in `sites`).  Theslates template doesn't define any layout other than default.  Thus it gets rendered without any templating.  Let's test.
 
