@@ -8,3 +8,12 @@ Supposedly this is part of a "thing" on github for making sites dedicated/relate
 [See more](Another.md)
 
 It seems to take 1+ minutes for the associated github.io page to update.  The documentation implies there's some complication going on, although thus far I haven't encountered any particularly description thereof.
+
+Blog Tests:  
+<ul>
+  {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+  {% endfor %}
+</ul>
