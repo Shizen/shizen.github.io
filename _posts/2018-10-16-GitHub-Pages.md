@@ -33,4 +33,7 @@ Despite the fact that Jekyll is supposed to be 100% static, some Jekyll plugins 
 
 This format also feels very angular like, of course.
 
-This entire page appears to not be templated.
+This entire page appears to not be templated.  Ideally, this would not be the case and we'd have some sort of nav infrastrcutre.  I'm sure this is just a matter of ignorance on my part.
+
+[Back to Head](README.md)
+
