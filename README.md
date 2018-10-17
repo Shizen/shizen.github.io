@@ -4,7 +4,7 @@ This is the landing page on github for making sites dedicated/related to or desc
 
 GitHub Pages:
 
-`GitHub Pages` uses `jekyll` as its static site constructor which in turn uses `liquid` to do some limited dynamic content.  Since github claims `jekyll` does no server-side anything (seems likely as a design constraint), one presumes Liquid is entirely client-side scripting.  The system is similar in design to `sites` (less many features, plus many users ;).
+`GitHub Pages` uses [`jekyll`](https://github.com/jekyll/jekyll) as its static site constructor which in turn uses [`liquid`](https://shopify.github.io/liquid/basics/introduction/) to do some limited dynamic content.  Since github claims `jekyll` does no server-side anything (seems likely as a design constraint), one presumes Liquid is entirely client-side scripting.  The system is similar in design to `sites` (less many features, plus many users ;).
 
 - [Building User/org Page Sites](https://help.github.com/articles/user-organization-and-project-pages/)
 - [What is GitHub Pages](https://help.github.com/articles/what-is-github-pages/)
