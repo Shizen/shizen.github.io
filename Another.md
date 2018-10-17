@@ -13,3 +13,7 @@
 - `vscext-shinmark`
 
 ...
+
+GitHub Pages definitely allows local linking via usual markdown syntax.  Further, it will render linked markdown pages.  There ought to be a document somewhere that described better what GitHub Pages will do but...  It *does* seem oriented towards taking directly a jsdoc derived `docs/` directory containing straight up html.  Of course, from github's perspective that's not really jsdoc specific, just a general pattern.
+
+[Back to Index](README.md)
