@@ -1,6 +1,6 @@
 # @Shizen
 
-| [Shinworks](www.shinworks.co) | [Satsuma](www.satsuma.me) |
+| [Shinworks](www.shinworks.co "My 'professional' website") | [Satsuma](www.satsuma.me "My personal website") |
 
 This is the landing page on github for making sites dedicated/related to or describing a project, or in this case a user (me).  The overall system is called `GitHub Pages`.  So this page should be all about me :tm:... As I relate to github.  or something.
 
@@ -11,7 +11,7 @@ GitHub Pages:
 - [Building User/org Page Sites](https://help.github.com/articles/user-organization-and-project-pages/)
 - [What is GitHub Pages](https://help.github.com/articles/what-is-github-pages/)
 
-It seems to take 1+ minutes for the associated github.io page to update.  The documentation implies there's some complication going on, although thus far I haven't encountered any particularly description thereof.  GFM does not provide any toc afaik, and neither does Jekyll, although it's conceivable that some liquid shim might be able to manage it, along with a custom style sheet or layout.  Also note that while Jekyll allows for [tag filter plugins](https://jekyllrb.com/docs/plugins/) **these will not run on GitHub Pages**.  See all `--safe` (which is the option GitHub Pages is leveraging to disable plugins).
+It seems to take 1+ minutes for the associated github.io page to update.  The documentation implies there's some complication going on, although thus far I haven't encountered any particularly description thereof.  GFM does not provide any toc afaik, and neither does Jekyll, although it's conceivable that some liquid shim might be able to manage it, along with a custom style sheet or layout.  Also note that while Jekyll allows for [tag filter plugins](https://jekyllrb.com/docs/plugins/), **these will not run on GitHub Pages**.  See all `--safe` (which is the option GitHub Pages is leveraging to disable plugins).
 
 [Other Projects](Another.md)
 
