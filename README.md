@@ -2,20 +2,22 @@
 
 [Shinworks](www.shinworks.co "My 'professional' website")   
 [Satsuma](www.satsuma.me "My personal website")  
-[GitHub](https://github.com/Shizen/shizen.github.io)
+[GitHub](https://github.com/Shizen/shizen.github.io)  
 [LinkedIn]( "I don't use LinkedIn, really, but people seem to like it ;)")  
 
 Shizen, aka Shin is a full stack developer and free lance computer consultant (as in software developer--not sure when that terminology got conflated) living in Seattle, WA (USA).
 
+I have not historically been much of a "blogger", per se.  These entries here are more sort of an experiment on my part with the capabilities of the local system.
+
 Categories:  
+
+<ul>
+  <li class="horizontal-list">:</li>
 {% for category in site.categories %}
-  <h3>{{ category[0] }}</h3>
-  <ul>
-    {% for post in category[1] %}
-      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-  </ul>
+  <li class="horizontal-list">{{ category[0] }}</li>
 {% endfor %}
+  <li class="horizontal-list">:</li>
+</ul>
 
 ---
 
@@ -50,3 +52,11 @@ It seems to take 1+ minutes for the associated github.io page to update.  The do
   </ul>
 </fieldset>
 
+{% for category in site.categories %}
+  <h3>{{ category[0] }}</h3>
+  <ul>
+    {% for post in category[1] %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endfor %}
