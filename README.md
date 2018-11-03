@@ -11,12 +11,12 @@ I have not historically been much of a "blogger", per se.  These entries here ar
 
 Categories:  
 
-<ul>
-  <li class="horizontal-list">:</li>
+<ul class="horizontal-list">
+  <li>:</li>
 {% for category in site.categories %}
-  <li class="horizontal-list">{{ category[0] }}</li>
+  <li>{{ category[0] }}</li>
 {% endfor %}
-  <li class="horizontal-list">:</li>
+  <li>:</li>
 </ul>
 
 ---
