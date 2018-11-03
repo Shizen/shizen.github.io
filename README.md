@@ -9,15 +9,19 @@ Shizen, aka Shin is a full stack developer and free lance computer consultant (a
 
 I have not historically been much of a "blogger", per se.  These entries here are more sort of an experiment on my part with the capabilities of the local system.
 
-Categories:  
+<fieldset>
+  <legend>Blogs:</legend>  
+  <ul>
+    {% for post in site.posts %}
+      <li>
+        <a href="{{ post.url }}">{{ post.title }}</a>
+        {{ post.excerpt }}
+      </li>
+    {% endfor %}
+  </ul>
+</fieldset>
 
-<ul class="horizontal-list">
-  <li>:</li>
-{% for category in site.categories %}
-  <li>{{ category[0] }}</li>
-{% endfor %}
-  <li>:</li>
-</ul>
+<p>&nbsp;</p> <!-- evil spacer trix -->
 
 ---
 
@@ -60,3 +64,15 @@ It seems to take 1+ minutes for the associated github.io page to update.  The do
     {% endfor %}
   </ul>
 {% endfor %}
+
+
+Categories:  
+
+<ul class="horizontal-list">
+  <li>:</li>
+{% for category in site.categories %}
+  <li>{{ category[0] }} :</li>
+{% endfor %}
+</ul>
+
+I don't think I can do any clever webAPI/REST type tricks in github pages as I don't have any control over routes, but I haven't looked.  The alternative would be to have hard coded pages for each category.  I really not feeling like this is worth investing time in :).
