@@ -66,7 +66,7 @@ Apparently there are more complicated combinatorics available via the yaml setti
 
 [`Liquid`](https://help.shopify.com/en/themes/liquid/basics) is an open-source server side scripting language written by shopify to serve as a template engine (presumably for their user base).  Alternatively, their own documentation sometimes refers to it as a "template language".  (Also, Liquid's [github](https://shopify.github.io/liquid/basics/introduction/) link).
 
-Liquid provides some basicaly scripting/flow control.  Object access and angular style filters.  So things like {% raw %}`{{ 5000 | money_with_currency }}`{% endraw %} yeilds `{{ 5000 | money_with_currency }}`.  The primary limiter on what one can do depends on what objects GitHub Pages/Jekyll provides to Liquid to manipulate.  A concise listing thereof I haven't seen, yet ([best so far](https://jekyllrb.com/docs/variables/)).
+Liquid provides some basicaly scripting/flow control.  Object access and angular style filters.  So things like {% raw %}`{{ a-better-example-than-money | camelcase }}`{% endraw %} yeilds `{{ a-better-example-than-money | camelcase }}`.  The primary limiter on what one can do depends on what objects GitHub Pages/Jekyll provides to Liquid to manipulate.  A concise listing thereof I haven't seen, yet ([best so far](https://jekyllrb.com/docs/variables/)).
 
 Despite reading somewhere that Jekyll is supposed to be 100% static, does allow for dynamic content/server-side scripting.  Take this example from the [Posts](https://jekyllrb.com/docs/posts/) page in Jekyll.  When I first read this, I assumed they were doing some tricks with transmitting raw information to the client and letting the client process it via client-side scripts, similar to how angular works.  This turns out not to be true, but rather, the original statement is "false" (or at least misleading).  *Liquid* does server-side processing.  it is in fact a server-side scripting language (they call themselves a template engine).  Take the following example.
 
@@ -104,7 +104,7 @@ So with the basics understood we can deal with a few gotchas I've noticed.
 
 Links and relative urls are often problematic in these systems as they move things around during their internal deployment step and do not always map the urls correctly.  For instance...
 
-[Back to Head](/README.md) (`[Back to Head](/README.md)`): Notice how this link doesn't serve up the parsed markdown page (documentation I've read claims that markdown files are compiled as part of the "compilation and posting" phase that happens every `post-commit`.  This is technically an absolute url (the leading `/`).  `[Back to Index](README.md)` (which is relative) actually does resolve to the *compiled* (I prefer the term rendered) markdown page.  This despite that in theory, in my repo structure these two urls are equivalent.
+[Back to Head](/README.md) (`[Back to Head](/README.md)`): Notice how this link doesn't serve up the parsed markdown page (documentation I've read claims that markdown files are compiled as part of the "compilation and posting" phase that happens every `post-commit`.  This is technically an absolute url (note the leading `/`).  `[Back to Index](README.md)` (which is relative) actually does resolve to the *compiled* (I prefer the term rendered) markdown page.  This despite that in theory, in my repo structure these two urls are equivalent.
 
 For their part, Jekyll offers the following work around, using Liquid.  `{% raw %}[Back to Head]({{ site.baseurl }}{% link README.md %}){% endraw %}` which produces the link [Back to Head]({{ site.baseurl }}{% link README.md %}).
 
@@ -116,7 +116,7 @@ In addition to its page_url processing, liquid & jekyll provide "tag filters".  
 
 ### Escaping
 
-As server side expansions, Liquid instructions (they don't seem to have any particularly terminology to talk about their "scripting language") are expanded effectively out of context (before, I think, but not tested) from the markdown itself.  This means that even script in back ticks `` ` `` will be resolved and their resolved values rendered to the page.
+As server side expansions, Liquid instructions (they don't seem to have any particularly terminology to talk about their "scripting language") are expanded effectively out of context (before, I think, but not tested) from the markdown itself.  This means that even script in back ticks `` ` `` will be resolved and their resolved values rendered to the page.  Instead, for liquid one must use the `{% raw %}{% raw %}{% endraw %}{% endraw %}` marker. (No way their parser will get this "right").
 
 ## Overriding and Semantic Directory Structure in Jekyll
 
