@@ -58,7 +58,7 @@ def foo
   puts 'foo'
 end
 ```
-Note that while the ruby syntax css appears to be imported by default not all are, and might require [extra effort](https://jekyllrb.com/docs/liquid/tags/#stylesheets-for-syntax-highlighting) ;).  
+Note that while the ruby syntax css appears to be imported by default not all are, and might require [extra effort](https://jekyllrb.com/docs/liquid/tags/#stylesheets-for-syntax-highlighting) ;).  Jekyll does have a mechanism for implementing your own plugins, but `Github Pages` does not allow it.
 
 Apparently there are more complicated combinatorics available via the yaml settings in `_config.yml` (the root level config file mentioned earlier).  In theory, for example, you can use kramdown for instance and specify a dialect.  I haven't looked into the extent of these options.
 
@@ -116,7 +116,7 @@ In addition to its page_url processing, liquid & jekyll provide "tag filters".  
 
 ### Escaping
 
-As server side expansions, Liquid instructions (they don't seem to have any particularly terminology to talk about their "scripting language") are expanded effectively out of context (before, I think, but not tested) from the markdown itself.  This means that even script in back ticks `` ` `` will be resolved and their resolved values rendered to the page.  Instead, for liquid one must use the `{% raw %}{% raw %}{% endraw %}{{ "{%" }}endraw{% raw %}%}{% endraw %}` marker.
+As server side expansions, Liquid instructions (they don't seem to have any particularly terminology to talk about their "scripting language") are expanded effectively out of context (before, I think, but not tested) from the markdown itself.  This means that even script in back ticks `` ` `` will be resolved and their resolved values rendered to the page.  Instead, for liquid one must use the `{% raw %}{% raw %}{% endraw %}{{ "{%" }} endraw {% raw %}%}{% endraw %}` marker.
 
 ### Crashes!
 
