@@ -133,3 +133,5 @@ To introduce a navigation to my template, I could build a new layout, build my o
 You can also add `css` via the `assets/css` directory (which I did for an experiment on another page in this repo).  This example is describe [here](https://help.github.com/articles/customizing-css-and-html-in-your-jekyll-theme/).
 
 Github provides a number of internal [`Github Pages` help files](https://help.github.com/categories/customizing-github-pages/).
+
+[Back to Head]({{ site.baseurl }}{% link README.md %})
