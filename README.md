@@ -1,9 +1,9 @@
 # Shizen
 
-[Shinworks](www.shinworks.co "My 'professional'/D.B.A. website")   
-[Satsuma](www.satsuma.me "My personal website")  
+[Shinworks](https://www.shinworks.co "My 'professional'/D.B.A. website")   
+[Satsuma](https://www.satsuma.me "My personal website")  
 [GitHub](https://github.com/Shizen)  
-[LinkedIn](www.linkedin.com/in/sean-simmons-3932549b "I don't use LinkedIn, really, but people seem to like it ;)")  
+[LinkedIn](https://www.linkedin.com/in/sean-simmons-3932549b "I don't use LinkedIn, really, but people seem to like it ;)")  
 
 Shizen, aka Shin is a full stack developer and free lance computer consultant (as in software developer--not sure when that terminology got conflated) living in Seattle, WA (USA).
 
