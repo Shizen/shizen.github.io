@@ -41,7 +41,7 @@ excerpt_separator: <!--excerpt delimeter-->
 
 `layout` speaks to which layout template to use.  `title` is the title of this page (more or less).  `categories` are indexed by liquid for server-side scripting reference, as are `tags`.  The `excerpt_separator` is also used by `Liquid` when it inserts an excerpt of a file (it tells `Liquid` where the excerpt ends).
 
-Markdown also "normally" allows for <mark>embedded markdown</mark>.  This means you can literally just write your own html mixed with your markdown (which effectively is just a macro shorthand for you at that point).  Some systems limit or filter which tags they will allow.  I haven't researched or tested this aspect of github pages or jekyll. 
+Markdown also "normally" allows for <mark>embedded html</mark>.  This means you can literally just write your own html mixed with your markdown (which effectively makes your markup just a macro shorthand for html at that point).  Some systems limit or filter which tags they will allow (for instance github itself).  I haven't researched or tested what limits github pages or jekyll places, but they certainly allow <i>some</i> html ;).
 
 Jekyll also supports tag filters, which I believe is how `Liquid` is included in their ecosystem in the first place.  It is not the only one.  For instance, there is also a filter for syntax coloring--[`rouge`](http://rouge.jneen.net/).  Of course, markdown does this already...
 
