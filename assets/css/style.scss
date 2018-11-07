@@ -14,14 +14,18 @@ ul.horizontal-list>li {
   padding-left: 0.5em;
 }
 
-fieldset {
+fieldset.blogs {
     border-width: 2px;
     border-style: groove;
     border-color: threedface;
     border-image: initial;
 }
 
-legend {
-  padding-left: 0.1em;
-  padding-right: 0.1em;
+fieldset.blogs legend {
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+}
+
+fieldset.blogs h1 {
+  font-size: 18px;
 }
