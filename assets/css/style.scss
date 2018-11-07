@@ -13,3 +13,15 @@ ul.horizontal-list>li {
   display: inline;
   padding-left: 0.5em;
 }
+
+fieldset {
+    border-width: 2px;
+    border-style: groove;
+    border-color: threedface;
+    border-image: initial;
+}
+
+legend {
+  padding-left: 0.1em;
+  padding-right: 0.1em;
+}
