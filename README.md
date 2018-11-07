@@ -9,7 +9,7 @@ Shizen, aka Shin is a full stack developer and free lance computer consultant (a
 
 I have not historically been much of a "blogger", per se.  These entries here are more sort of an experiment on my part with the capabilities of github/`Github Pages`, which I find interesting for their similarities to my own `sites` project.
 
-<fieldset>
+<fieldset class="blogs">
   <legend>Blogs:</legend>  
   <ul>
     {% for post in site.posts %}
