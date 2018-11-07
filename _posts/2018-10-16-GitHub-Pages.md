@@ -27,7 +27,7 @@ What does this mean?
 
 It means that the system is designed to have its users author their website pages in Markdown, and Jekyll will "compile" those pages into HTML and CSS to be served (on github.io).  Markdown links and images follow standard guidelines.  Jekyll/GitHub Pages will simply serve whatever is in the Repos.  I haven't tested if there are issues with relative urls like there are with README markdown files served on `github.com`.* (Actually I have, and there are some.  See below)
 
-Exactly which brand of front-matter Jekyll uses I'm not sure.  In my brief experiences with the system, the key-value pairs set in the front-matter inform aspects of the page's rendering by Jekyll and indexing by Liquid.  For instance, the article is in theory a blog post.  Its front-matter looks like...
+Exactly which brand of front-matter Jekyll uses I'm not sure.  In my brief experiences with the system, the key-value pairs set in the front-matter inform aspects of the page's rendering by Jekyll and indexing by Liquid.  For instance, this article is in theory a blog post.  Its front-matter looks like...
 
 ```
 ---
