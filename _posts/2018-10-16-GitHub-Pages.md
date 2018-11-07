@@ -116,7 +116,7 @@ In addition to its page_url processing, liquid & jekyll provide "tag filters".  
 
 ### Escaping
 
-As server side expansions, Liquid instructions (they don't seem to have any particularly terminology to talk about their "scripting language") are expanded effectively out of context (before, I think, but not tested) from the markdown itself.  This means that even script in back ticks `` ` `` will be resolved and their resolved values rendered to the page.  Instead, for liquid one must use the `{% raw %}{% raw %}{% endraw %}{{ "{% endraw %}" }}` marker.
+As server side expansions, Liquid instructions (they don't seem to have any particularly terminology to talk about their "scripting language") are expanded effectively out of context (before, I think, but not tested) from the markdown itself.  This means that even script in back ticks `` ` `` will be resolved and their resolved values rendered to the page.  Instead, for liquid one must use the `{% raw %}{% raw %}{% endraw %}{{ "{%" }}endraw{{ "%}" }}` marker.
 
 ### Crashes!
 
