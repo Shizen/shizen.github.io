@@ -66,7 +66,7 @@ Apparently there are more complicated combinatorics available via the yaml setti
 
 [`Liquid`](https://help.shopify.com/en/themes/liquid/basics) is an open-source server side scripting language written by shopify to serve as a template engine (presumably for their user base).  (Also, Liquid's [github](https://shopify.github.io/liquid/basics/introduction/) link).
 
-Liquid provides some basicaly scripting/flow control.  Object access and angular style filters.  So things like `{{ 50 | money_with_currency }}` : {{ 50 | money_with_currency }}.  The primary limiter on what one can do depends on what objects GitHub Pages/Jekyll provides to Liquid to manipulate.  A concise listing thereof I haven't seen, yet ([best so far](https://jekyllrb.com/docs/variables/)).
+Liquid provides some basicaly scripting/flow control.  Object access and angular style filters.  So things like `\{\{ 50 | money_with_currency }}` : {{ 50 | money_with_currency }}.  The primary limiter on what one can do depends on what objects GitHub Pages/Jekyll provides to Liquid to manipulate.  A concise listing thereof I haven't seen, yet ([best so far](https://jekyllrb.com/docs/variables/)).
 
 Despite reading somewhere that Jekyll is supposed to be 100% static, does allow for dynamic content/server-side scripting.  Take this example from the [Posts](https://jekyllrb.com/docs/posts/) page in Jekyll.  When I first read this, I assumed they were doing some tricks with transmitting raw information to the client and letting the client process it via client-side scripts, similar to how angular works.  This turns out not to be true, but rather, the original statement is "false" (or at least misleading).  *Liquid* does server-side processing.  it is in fact a server-side scripting language (they call themselves a template engine).  Take the following example.
 
@@ -108,11 +108,15 @@ Links and relative urls are often problematic in these systems as they move thin
 
 For their part, Jekyll offers the following work around, using Liquid.  `[Back to Head]({{ site.baseurl }}{% link README.md %})` which produces the link [Back to Head]({{ site.baseurl }}{% link README.md %}).
 
-Also,in theory the shorthand `{% link README.md %}` should work as well. E.g. `[README]({% link README.md %})` [README]({% link README.md %}).
+Also,in theory the shorthand `\{% link README.md %}` should work as well. E.g. `[README](\{% link README.md %})` [README]({% link README.md %}).
 
 ### Excerpts
 
-In addition to its page_url processing, liquid & jekyll provide "tag filters".  I suspect the excerpt above was one example.  Unfortunately, the default template does not deal with excerpts at all, and thus you end up with an H1 quoted in your documents, because it takes the markdown literally.  Some clever 
+In addition to its page_url processing, liquid & jekyll provide "tag filters".  I suspect the excerpt above was one example.  Unfortunately, the default template does not deal with excerpts at all, and thus you end up with an H1 quoted in your documents, because it takes the markdown literally.  Some clever css could potentially clean this up (by overriding display traits)
+
+### Escaping
+
+As server side expansions, Liquid instructions (they don't seem to have any particularly terminology to talk about their "scripting language") are expanded effectively out of context (before, I think, but not tested) from the markdown itself.  This means that even script in back ticks `` ` `` will be resolved and their resolved values rendered to the page.
 
 ## Overriding and Semantic Directory Structure in Jekyll
 
