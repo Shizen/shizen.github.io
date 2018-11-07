@@ -27,7 +27,7 @@ I have not historically been much of a "blogger", per se.  These entries here ar
 
 ### `GitHub Pages`:  (*inception!*)
 
-(These notes are really for myself, but if they prove useful to you... Enjoy!  You might find my [introduction to Github Pages]({{ site.baseurl }}{% post_url 2018-10-16-GitHub-Pages %}) article more edifying)
+<mark>(The following notes are really for myself, but if they prove useful to you... Enjoy!  You might find my [introduction to Github Pages]({{ site.baseurl }}{% post_url 2018-10-16-GitHub-Pages %}) article more edifying)</mark>
 
 This is the landing page on github for making sites dedicated/related to or describing a project, or in this case a user (me).  The overall system is called `GitHub Pages`.  So this page should be all about me :tm:... As I relate to github.  or something.
 
