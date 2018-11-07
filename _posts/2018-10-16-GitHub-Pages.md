@@ -108,7 +108,7 @@ Links and relative urls are often problematic in these systems as they move thin
 
 For their part, Jekyll offers the following work around, using Liquid.  `{% raw %}[Back to Head]({{ site.baseurl }}{% link README.md %}){% endraw %}` which produces the link [Back to Head]({{ site.baseurl }}{% link README.md %}).
 
-Also,in theory the shorthand `{% raw %}{% link README.md %}{% endraw %}` should work as well. E.g. `[README]({% raw %}{% link README.md %}{% endraw %})` [README]({% link README.md %}).
+Also,in theory the shorthand `{% raw %}{% link README.md %}{% endraw %}` should work as well. E.g. [README]({% link README.md %}) : `[README]({% raw %}{% link README.md %}{% endraw %})`.
 
 ### Excerpts
 
