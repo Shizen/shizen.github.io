@@ -25,7 +25,7 @@ I have not historically been much of a "blogger", per se.  These entries here ar
 
 ---
 
-`GitHub Pages`:  (*inception!*)
+## `GitHub Pages`:  (*inception!*)
 
 (These notes are really for myself, but if they prove useful to you... Enjoy!  You might find my [introduction to Github Pages]({{ site.baseurl }}{% post_url 2018-10-16-GitHub-Pages %}) article more edifying)
 
