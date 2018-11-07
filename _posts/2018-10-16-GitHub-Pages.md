@@ -14,43 +14,36 @@ In theory this will convert itself into a blog post.  Let's find out.
 
 <!--excerpt delimeter-->
 
-Jekyll, like `Sites` uses markdown and front-matter.  What they set there is different, however.  `Sites` uses a db/sites file to discover what endpoints are supposed to be open.  Jekyll just serves whatever it finds.  Some of the settings in the sites descriptor, however are in the Jekyll front-matter.  E.g. Renderer & Title for instance.
 
-Markdown links and images follow standard guidelines.  Jekyll/GitHub Pages will simply serve whatever is in the Repos.
+[Jekyll](https://jekyllrb.com/) is a markdown-based templating engine for constructing "low impact" web sites.  By low impact, here, I mean light on server resources.  For `Github Pages`, Github uses Jekyll to serve whatever it finds in the given repo as if it were a Jekyll project.  Basic configuration is accomplished via a yaml file at the site's root for settings like themes.  Jekyll also defines a semantic directory structure (which also applies to Github Page repos) allowing for overriding various theming details via layout and css files.  Finally Jekyll leverages shopify's [liquid](https://github.com/Shopify/liquid/wiki) to provide some measure of server-side scripting.
 
-Despite the fact that Jekyll is supposed to be 100% static, some Jekyll plugins appear to allow dynamic content/server-side scripting.  Take this example from the [Posts](https://jekyllrb.com/docs/posts/) page in Jekyll.  Without looking I have to assume if those two statements are simultaneously true, there must be some transmission of the data from the server to the client followed by client-side evaluation of the scripts.  (I.e. `site.posts` gets sent to the client which then performs the resolution.  It could be done dynamically on demand, and resolved in place in a fashion analogous to Angular.  That's what I'd do with those requirements).
+In the brief outline below, unless otherwise stated, all the features ascribed to Jekyll are also available in the context of Github Pages.
 
-    <ul>
-      {% for post in site.posts %}
-        <li>
-          <a href="{{ post.url }}">{{ post.title }}</a>
-        </li>
-      {% endfor %}
-    </ul>
+## Jekyll Markdown
 
-<ul>
-  {% for post in site.posts %}
-    <li>
-      <a href="{{ post.url }}">{{ post.title }}</a>
-    </li>
-  {% endfor %}
-</ul>
+Jekyll uses, afaik, GFM markdown (I'm shocked).  Its markdown includes front-matter (that's an optional section at the head of the file where one can add key-value pairs of information).  This front-matter is used (as far as I've seen) for informing liquid about meta data relating to each given file.
 
-This format also feels very angular like, of course.
+What does this mean?
 
-This entire page appears to not be templated.  Ideally, this would not be the case and we'd have some sort of nav infrastrcutre.  I'm sure this is just a matter of ignorance on my part.
+It means that the system is designed to have its users author their website pages in Markdown, and Jekyll will "compile" those pages into HTML and CSS to be served (on github.io).  Markdown links and images follow standard guidelines.  Jekyll/GitHub Pages will simply serve whatever is in the Repos.  I haven't tested if there are issues with relative urls like there are with README markdown files served on `github.com`.* (Actually I have, and there are some.  See below)
 
-[Back to Head](/README.md) : Notice how this link doesn't serve up the parsed markdown page (documentation I've read claims that markdown files are compiled as part of the "compilation and posting" phase that happens every `post-commit`.  Note that in `Another.md` I have a nearly identical link, but it *does* resolve to the compiled page.  Interesting :).
+Exactly which brand of front-matter Jekyll uses I'm not sure.  In my brief experiences with the system, the key-value pairs set in the front-matter inform aspects of the page's rendering by Jekyll and indexing by Liquid.  For instance, the article is in theory a blog post.  Its front-matter looks like...
 
-The "workaround" seems to be using Liquid again.  [Back to Head]({{ site.baseurl }}{% link README.md %}) should work... on line 42!
+```
+---
+layout: default
+title: "Shin does Jekyll"
+categories: [jekyll, github, cms]
+tags: [sites]
+excerpt_separator: <!--excerpt delimeter-->
+---
+```
 
-In theory `{% link README.md %}` should work as well. E.g. [README]({% link README.md %}).
+`layout` speaks to which layout template to use.  `title` is the title of this page (more or less).  `categories` are indexed by liquid for server-side scripting reference, as are `tags`.  The `excerpt_separator` is also used by `Liquid` when it inserts an excerpt of a file (it tells `Liquid` where the excerpt ends).
 
-Apparently if I create a `_drafts/` directory, whatever I put in there won't be served, and I can later move it to the posts directory and rename it.  if I had jekyll setup to run locally I could override this behavior in its cli.  Meh.  Jekyll does not do server-side anything and thus provides no built-in editor like `sites` does.  This is another much ado about nothing, I think--jekyll just doesn't serve this directory as a special hardcoded cut out.  Moving on.
+Markdown also "normally" allows for <mark>embedded markdown</mark>.  This means you can literally just write your own html mixed with your markdown (which effectively is just a macro shorthand for you at that point).  Some systems limit or filter which tags they will allow.  I haven't researched or tested this aspect of github pages or jekyll. 
 
-In addition to its page_url processing, liquid & jekyll provide "tag filters".  I suspect the excerpt above was one example.  Unfortunately, the default template does not deal with excerpts at all, and thus you end up with an H1 quoted in your documents, because it takes the markdown literally.  That aside...
-
-There is a filter for syntax coloring--[`rouge`](http://rouge.jneen.net/).  Of course, markdown does this already...
+Jekyll also supports tag filters, which I believe is how `Liquid` is included in their ecosystem in the first place.  It is not the only one.  For instance, there is also a filter for syntax coloring--[`rouge`](http://rouge.jneen.net/).  Of course, markdown does this already...
 
 Rouge/Jekyll filter:  
 {% highlight ruby %}
@@ -65,11 +58,68 @@ def foo
   puts 'foo'
 end
 ```
+Note that while the ruby syntax css appears to be imported by default not all are, and might require [extra effort](https://jekyllrb.com/docs/liquid/tags/#stylesheets-for-syntax-highlighting) ;).  Apparently there are more complicated combinatorics available via the yaml settings in `_config.yml` (the root level config file mentioned earlier).  In theory, for example, you can use kramdown for instance and specify a dialect.  I haven't looked into the extent of these options.
 
-(Note that with the lack of templating...  I should go look into that.) < Now fixed.  Note that while the ruby syntax css appears to be imported by default not all are, and might require [extra effort](https://jekyllrb.com/docs/liquid/tags/#stylesheets-for-syntax-highlighting) ;).
+## [Liquid](https://github.com/Shopify/liquid)
 
-So having skimmed the relevant documentation, it looks like the `layout` front-matter is a direct reference to an html file in the `_layouts` directory that Jekyll is going to reference to build the page (very similar to `renderer` in `sites`).  Theslates template doesn't define any layout other than default.  Thus it gets rendered without any templating.  Let's test.
+[`Liquid`](https://help.shopify.com/en/themes/liquid/basics) is an open-source server side scripting language written by shopify to serve as a template engine (presumably for their user base).  (Also, Liquid's [github](https://shopify.github.io/liquid/basics/introduction/) link).
 
-Yes, that did the trick.  So for a custom template, I'd either build my own, or there is a mechanism to override the template by providing my own in a local `_layouts/` directory (root-level presumably).  I can customize the default or add new ontes, in theory.  Like a `post.html` template to support the `layout:post` front-matter suggested in the GitHub-pages docs.  There are [more details](https://jekyllrb.com/docs/themes/) on themes and stuff one can do with them.  Beware that GitHub Pages do not support all themes, although you can reference other github hosted themes with `remote_theme`...  I haven't played with it to test its reach.  Overriding `layouts/` seems like it's probably legit.
+Liquid provides some basicaly scripting/flow control.  Object access and angular style filters.  So things like `{{ 50 | money_with_currency }}` : {{ 50 | money_with_currency }}.  The primary limiter on what one can do depends on what objects GitHub Pages/Jekyll provides to Liquid to manipulate.  A concise listing thereof I haven't seen, yet ([best so far](https://jekyllrb.com/docs/variables/)).
 
-Back to the topic of [Liquid](https://help.shopify.com/en/themes/liquid/basics).  Liquid provides some basicaly scripting/flow control.  Object access and angular style filters.  So angular-like it hurts me :).  So things like `{{ 50 | money_with_currency }}` : {{ 50 | money_with_currency }}.  The primary limiter on what one can do depends on what objects GitHub Pages/Jekyll provides to Liquid to manipulate.  A concise listing thereof I haven't seen, yet ([best so far](https://jekyllrb.com/docs/variables/)).  (Liquid was apparently created by shopify, hense the url above, but also here on [github](https://shopify.github.io/liquid/basics/introduction/)).
+Despite reading somewhere that Jekyll is supposed to be 100% static, does allow for dynamic content/server-side scripting.  Take this example from the [Posts](https://jekyllrb.com/docs/posts/) page in Jekyll.  When I first read this, I assumed they were doing some tricks with transmitting raw information to the client and letting the client process it via client-side scripts, similar to how angular works.  This turns out not to be true, but rather, the original statement is "false" (or at least misleading).  *Liquid* does server-side processing.  it is in fact a server-side scripting language (they call themselves a template engine).  Take the following example.
+
+```html
+<ul>
+  {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+  {% endfor %}
+</ul>
+```
+
+Which then gets rendered (in the context of the `shizen.github.io` repo) the following
+
+---
+
+<ul>
+  {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+  {% endfor %}
+</ul>
+
+---
+
+This format also feels very angular like to me.  Ideally, we'd get some sort of nav infrastructure as well.  I'm sure this is just a matter of ignorance on my part, but I haven't seen anything of the sort yet.
+
+## Gotchas
+
+So with the basics understood we can deal with a few gotchas I've noticed.
+
+### Links
+
+Links and relative urls are often problematic in these systems as they move things around during their internal deployment step and do not always map the urls correctly.  For instance...
+
+[Back to Head](/README.md) (`[Back to Head](/README.md)`): Notice how this link doesn't serve up the parsed markdown page (documentation I've read claims that markdown files are compiled as part of the "compilation and posting" phase that happens every `post-commit`.  This is technically an absolute url (the leading `/`).  `[Back to Index](README.md)` (which is relative) actually does resolve to the *compiled* (I prefer the term rendered) markdown page.  This despite that in theory, in my repo structure these two urls are equivalent.
+
+For their part, Jekyll offers the following work around, using Liquid.  `[Back to Head]({{ site.baseurl }}{% link README.md %})` which produces the link [Back to Head]({{ site.baseurl }}{% link README.md %}).
+
+Also,in theory the shorthand `{% link README.md %}` should work as well. E.g. `[README]({% link README.md %})` [README]({% link README.md %}).
+
+### Excerpts
+
+In addition to its page_url processing, liquid & jekyll provide "tag filters".  I suspect the excerpt above was one example.  Unfortunately, the default template does not deal with excerpts at all, and thus you end up with an H1 quoted in your documents, because it takes the markdown literally.  Some clever 
+
+## Overriding and Semantic Directory Structure in Jekyll
+
+Apparently if I create a `_drafts/` directory, whatever I put in there won't be served, and I can later move it to the posts directory and rename it.  (And here I've skipped over the part where blog posts are identified by their inclusion in the `_posts` directory.  If I had jekyll setup to run locally I could override this behavior in its cli.  This obviously doesn't apply to Github Pages.  
+
+Another example would be the `layout` front-matter described above.  This is a direct reference to an html file in the `_layouts` directory that Jekyll is going to reference to build the page (very similar to `renderer` in `sites`).  The `slates` theme (which is what this site uses and is blended with our repo during rendering/deploy) doesn't define any layout other than default.  Thus it gets rendered without any templating.
+
+To introduce a navigation to my template, I could build a new layout, build my own theme, or use the override mechanism to override the default layout by providing my own in a local `/_layouts/` directory.  I could add a `post.html` template to support the `layout:post` front-matter suggested in the GitHub-pages docs.  There are [more details](https://jekyllrb.com/docs/themes/) on themes and stuff one can do with them.  Beware that GitHub Pages do not support all themes, although you can reference other github hosted themes with `remote_theme`...  I haven't played with it to test its reach.
+
+You can also add `css` via the `assets/css` directory (which I did for an experiment on another page in this repo).  This example is describe [here](https://help.github.com/articles/customizing-css-and-html-in-your-jekyll-theme/).
+
+Github provides a number of internal [`Github Pages` help files](https://help.github.com/categories/customizing-github-pages/).
