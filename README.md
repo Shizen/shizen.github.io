@@ -7,7 +7,7 @@
 
 Shizen, aka Shin is a full stack developer and free lance computer consultant (as in software developer--not sure when that terminology got conflated) living in Seattle, WA (USA).
 
-I have not historically been much of a "blogger", per se.  These entries here are more sort of an experiment on my part with the capabilities of the local system.
+I have not historically been much of a "blogger", per se.  These entries here are more sort of an experiment on my part with the capabilities of github/`Github Pages`, which I find interesting for their similarities to my own `sites` project.
 
 <fieldset>
   <legend>Blogs:</legend>  
@@ -27,11 +27,11 @@ I have not historically been much of a "blogger", per se.  These entries here ar
 
 `GitHub Pages`:  (*inception!*)
 
-(These notes are really for myself, but if they prove useful to you... Enjoy!)
+(These notes are really for myself, but if they prove useful to you... Enjoy!  You might find my [introduction to Github Pages]({{ site.baseurl }}{% post_url 2018-10-16-GitHub-Pages %}) article more edifying)
 
 This is the landing page on github for making sites dedicated/related to or describing a project, or in this case a user (me).  The overall system is called `GitHub Pages`.  So this page should be all about me :tm:... As I relate to github.  or something.
 
-`GitHub Pages` uses [`jekyll`](https://github.com/jekyll/jekyll) as its static site constructor which in turn uses [`liquid`](https://shopify.github.io/liquid/basics/introduction/) to do some limited dynamic content.  Since github claims `jekyll` does no server-side anything (seems likely as a design constraint), one presumes Liquid is entirely client-side scripting.  The system is similar in design to `sites` (less many features, plus many users ;).
+`GitHub Pages` uses [`jekyll`](https://github.com/jekyll/jekyll) as its "static site constructor" which in turn uses [`liquid`](https://shopify.github.io/liquid/basics/introduction/) to do some limited dynamic content.  Since github claims `jekyll` does no server-side anything (seems likely as a design constraint), one presumes Liquid is entirely client-side scripting.  The system is similar in design to `sites` (less many features, plus many users ;).
 
 - [Building User/org Page Sites](https://help.github.com/articles/user-organization-and-project-pages/)
 - [What is GitHub Pages](https://help.github.com/articles/what-is-github-pages/)
