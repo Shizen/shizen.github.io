@@ -64,9 +64,9 @@ Apparently there are more complicated combinatorics available via the yaml setti
 
 ## [Liquid](https://github.com/Shopify/liquid)
 
-[`Liquid`](https://help.shopify.com/en/themes/liquid/basics) is an open-source server side scripting language written by shopify to serve as a template engine (presumably for their user base).  (Also, Liquid's [github](https://shopify.github.io/liquid/basics/introduction/) link).
+[`Liquid`](https://help.shopify.com/en/themes/liquid/basics) is an open-source server side scripting language written by shopify to serve as a template engine (presumably for their user base).  Alternatively, their own documentation sometimes refers to it as a "template language".  (Also, Liquid's [github](https://shopify.github.io/liquid/basics/introduction/) link).
 
-Liquid provides some basicaly scripting/flow control.  Object access and angular style filters.  So things like `\{\{ 50 | money_with_currency }}` : {{ 50 | money_with_currency }}.  The primary limiter on what one can do depends on what objects GitHub Pages/Jekyll provides to Liquid to manipulate.  A concise listing thereof I haven't seen, yet ([best so far](https://jekyllrb.com/docs/variables/)).
+Liquid provides some basicaly scripting/flow control.  Object access and angular style filters.  So things like {% raw %}`{{ 50 | money_with_currency }}`{% endraw %} : {{ 50 | money_with_currency }}.  The primary limiter on what one can do depends on what objects GitHub Pages/Jekyll provides to Liquid to manipulate.  A concise listing thereof I haven't seen, yet ([best so far](https://jekyllrb.com/docs/variables/)).
 
 Despite reading somewhere that Jekyll is supposed to be 100% static, does allow for dynamic content/server-side scripting.  Take this example from the [Posts](https://jekyllrb.com/docs/posts/) page in Jekyll.  When I first read this, I assumed they were doing some tricks with transmitting raw information to the client and letting the client process it via client-side scripts, similar to how angular works.  This turns out not to be true, but rather, the original statement is "false" (or at least misleading).  *Liquid* does server-side processing.  it is in fact a server-side scripting language (they call themselves a template engine).  Take the following example.
 
